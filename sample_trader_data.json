@@ -1,0 +1,38 @@
+# 🚀 AfriCredit - Alternative Data Credit Scoring Engine
+
+Mfumo wa Fintech unaokusanya Data Mbadala (Alternative Data) kutoka kwa wajasiriamali wadogo 
+ili kutengeneza Credit Score ya kidijitali kwa ajili ya Stock Financing.
+
+---
+
+## 📌 Features za Mfano (Prototype Features)
+- 📊 **Credit Scoring Algorithm:** Inachakata data za mauzo na ununuzi na kutoa alama (0 - 100).
+- 📲 **USSD & Mobile Interface Simulation:** Inasimulia jinsi mfanyabiashara anavyoingiza mauzo.
+- 🔌 **Supplier API Mock:** Mfano wa unganisho la data kutoka kwa MSAMBAZAJI (Wholesaler).
+- 🏦 **Bank Credit Decision Engine:** Mfano wa API inayorudisha majibu kwa benki (APPROVED / REJECTED).
+
+---
+
+## 🛠️ Jinsi Scoring Algorithm Inavyofanya Kazi (Formula Overview)
+Alama ya Mkopo (Credit Score) inahesabiwa kwa kutumia vigezo vifuatavyo:
+1. **Consistency (35%):** Mzunguko wa ununuzi wa bidhaa kila mwezi.
+2. **Supplier Loyalty (30%):** Uaminifu wa ulipaji wa bidhaa za zamani.
+3. **Transaction Volume (25%):** Mzunguko wa fedha za kila siku.
+4. **Business Age (10%):** Muda ambao biashara imekuwa kwenye mfumo.
+
+---
+
+## 🚀 Jinsi ya Kujaribu Mfumo (How to Run Locally)
+
+### Prerequisites
+- Python 3.x au Node.js (Kulingana na lugha uliyotumia)
+
+### Installation
+1. Clone repository hii:
+   git clone https://github.com/username/africredit-scoring-engine.git
+
+2. Ingia kwenye folder:
+   cd africredit-scoring-engine
+
+3. Endesha mfumo:
+   python main.py

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AfriCredit | Alternative Data Credit Scoring Engine</title>
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-emerald-500 selection:text-slate-950">
+
+    <!-- NAVIGATION -->
+    <nav class="border-b border-slate-800 bg-slate-900/50 backdrop-blur-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-emerald-500 p-2 rounded-xl text-slate-950">
+                    <i data-lucide="shield-check" class="w-6 h-6"></i>
+                </div>
+                <span class="text-2xl font-extrabold tracking-tight">Afri<span class="text-emerald-400">Credit</span></span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <span class="hidden md:inline-flex items-center text-xs font-semibold px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full border border-emerald-500/20">
+                    <span class="w-2 h-2 bg-emerald-400 rounded-full animate-ping mr-2"></span>
+                    Live Sandbox / Proof of Concept
+                </span>
+                <a href="#simulator" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm px-5 py-2.5 rounded-xl transition-all">
+                    Jaribu Simulator
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="pt-36 pb-20 px-6 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-tight mb-6">
+                Kufungua Mikopo kwa Sekta Isiyo Rasmi Kupitia <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">Alternative Data</span>
+            </h1>
+            <p class="text-slate-400 text-lg md:text-xl mb-10 leading-relaxed">
+                Zaidi ya 85% ya wajasiriamali wadogo nchini Tanzania hawana dhamana za kibenki. Mfumo wetu unatafsiri mzunguko wa ununuzi kutoka kwa Wasambazaji (Suppliers) na Miamala ya Simu kuwa **Digital Credit Score**.
+            </p>
+        </div>
+
+        <!-- STATS BAR -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
+            <div class="p-6 bg-slate-900/60 rounded-2xl border border-slate-800">
+                <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Target SMEs</p>
+                <p class="text-3xl font-extrabold text-slate-100 mt-2">3.2M+</p>
+                <p class="text-xs text-slate-400 mt-1">Wafanyabiashara wasioshirikishwa na mabenki</p>
+            </div>
+            <div class="p-6 bg-slate-900/60 rounded-2xl border border-slate-800">
+                <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Financial Credit Gap</p>
+                <p class="text-3xl font-extrabold text-emerald-400 mt-2">TZS 5.0 Trillion</p>
+                <p class="text-xs text-slate-400 mt-1">Pengo la mtaji la kukuza stoo (Stock Financing)</p>
+            </div>
+            <div class="p-6 bg-slate-900/60 rounded-2xl border border-slate-800">
+                <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Scoring Engine Speed</p>
+                <p class="text-3xl font-extrabold text-teal-300 mt-2">&lt; 2 Seconds</p>
+                <p class="text-xs text-slate-400 mt-1">Uamuzi wa mikopo ya dharura kupitia API</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SIMULATOR SECTION -->
+    <section id="simulator" class="py-16 px-6 max-w-7xl mx-auto border-t border-slate-800/80">
+        <div class="mb-10 text-center">
+            <h2 class="text-3xl font-bold">Interactive Credit Score Engine Demo</h2>
+            <p class="text-slate-400 text-sm mt-2">Badili takwimu za mfanyabiashara hapa chini uone scoring algorithm inavyofanya kazi live.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-slate-900 border border-slate-800 rounded-3xl p-8">
+            
+            <!-- INPUT CONTROLS (8 Cols) -->
+            <div class="lg:col-span-7 space-y-6">
+                <h3 class="text-lg font-bold border-b border-slate-800 pb-3 flex items-center gap-2">
+                    <i data-lucide="sliders" class="w-5 h-5 text-emerald-400"></i>
+                    Alternative Data Inputs (Mama Mary - Retailer)
+                </h3>
+
+                <!-- Input 1: Supplier Purchases -->
+                <div>
+                    <div class="flex justify-between text-sm mb-2">
+                        <span class="text-slate-300">Wastani wa Ununuzi kwa Msambazaji (Kwa Mwezi)</span>
+                        <span class="font-bold text-emerald-400" id="purchasesVal">TZS 900,000</span>
+                    </div>
+                    <input type="range" id="purchasesInput" min="100000" max="3000000" step="50000" value="900000" 
+                        class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500">
+                </div>
+
+                <!-- Input 2: Supplier Repayment Loyalty -->
+                <div>
+                    <div class="flex justify-between text-sm mb-2">
+                        <span class="text-slate-300">Uaminifu wa Ulipaji wa Invois za Zamani (%)</span>
+                        <span class="font-bold text-emerald-400" id="loyaltyVal">90%</span>
+                    </div>
+                    <input type="range" id="loyaltyInput" min="10" max="100" step="5" value="90" 
+                        class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500">
+                </div>
+
+                <!-- Input 3: Digital Payments Ratio -->
+                <div>
+                    <div class="flex justify-between text-sm mb-2">
+                        <span class="text-slate-300">Miamala ya Lipa Namba / Simu (%)</span>
+                        <span class="font-bold text-emerald-400" id="digitalVal">65%</span>
+                    </div>
+                    <input type="range" id="digitalInput" min="0" max="100" step="5" value="65" 
+                        class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500">
+                </div>
+
+                <!-- Input 4: Business Age -->
+                <div>
+                    <div class="flex justify-between text-sm mb-2">
+                        <span class="text-slate-300">Umri wa Biashara Kwenye Mfumo (Miezi)</span>
+                        <span class="font-bold text-emerald-400" id="ageVal">18 Miezi</span>
+                    </div>
+                    <input type="range" id="ageInput" min="1" max="36" step="1" value="18" 
+                        class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500">
+                </div>
+            </div>
+
+            <!-- SCORING OUTPUT RESULT (5 Cols) -->
+            <div class="lg:col-span-5 bg-slate-950 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">Matokeo ya Algorithm</p>
+                    <div class="mt-6 text-center">
+                        <p class="text-6xl font-black tracking-tight text-slate-100" id="creditScore">78</p>
+                        <p class="text-xs text-slate-400 mt-1 uppercase font-semibold tracking-wider">Out of 100 Credit Score</p>
+                    </div>
+
+                    <div class="mt-8 space-y-4 text-sm border-t border-slate-800 pt-6">
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Kiwango cha Risk:</span>
+                            <span class="font-bold px-2.5 py-0.5 rounded text-xs" id="riskBadge">LOW RISK</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Maamuzi ya Benki:</span>
+                            <span class="font-bold text-emerald-400" id="loanStatus">APPROVED</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Kikomo cha Mkopo (Stock Financing):</span>
+                            <span class="font-bold text-slate-100" id="maxLoan">TZS 720,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-slate-900 text-center">
+                    <p class="text-xs text-slate-500">Data zinazothibitishwa na Supplier API & Bank Decision Engine</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ARCHITECTURE & VALUE PROPOSITION -->
+    <section class="py-16 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 bg-slate-900/40 border border-slate-800 rounded-2xl">
+            <i data-lucide="smartphone" class="w-8 h-8 text-emerald-400 mb-4"></i>
+            <h4 class="text-lg font-bold mb-2">USSD & App First</h4>
+            <p class="text-slate-400 text-sm">Wafanyabiashara wa ngazi zote (hata wenye simu za kitochi) wanaingiza na kuona taarifa zao kwa urahisi.</p>
+        </div>
+        <div class="p-6 bg-slate-900/40 border border-slate-800 rounded-2xl">
+            <i data-lucide="truck" class="w-8 h-8 text-emerald-400 mb-4"></i>
+            <h4 class="text-lg font-bold mb-2">Supplier Direct Integration</h4>
+            <p class="text-slate-400 text-sm">Fedha haziendi kama cash; zinakwenda moja kwa moja kwa Wasambazaji (Azam/Bakhresa) kupata bidhaa.</p>
+        </div>
+        <div class="p-6 bg-slate-900/40 border border-slate-800 rounded-2xl">
+            <i data-lucide="lock" class="w-8 h-8 text-emerald-400 mb-4"></i>
+            <h4 class="text-lg font-bold mb-2">Data Privacy Compliant</h4>
+            <p class="text-slate-400 text-sm">Inazingatia kikamilifu Sheria ya Ulinzi wa Data Binafsi (2022) kupitia Idhini (Consent) ya mtumiaji.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-900 py-10 px-6 text-center text-slate-600 text-sm">
+        <p>© 2026 AfriCredit System. Proof of Concept Demo Hosted on GitHub Pages.</p>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        lucide.createIcons();
+
+        // Get Input Elements
+        const purchasesInput = document.getElementById('purchasesInput');
+        const loyaltyInput = document.getElementById('loyaltyInput');
+        const digitalInput = document.getElementById('digitalInput');
+        const ageInput = document.getElementById('ageInput');
+
+        // Get Output Elements
+        const purchasesVal = document.getElementById('purchasesVal');
+        const loyaltyVal = document.getElementById('loyaltyVal');
+        const digitalVal = document.getElementById('digitalVal');
+        const ageVal = document.getElementById('ageVal');
+
+        const creditScoreEl = document.getElementById('creditScore');
+        const riskBadge = document.getElementById('riskBadge');
+        const loanStatus = document.getElementById('loanStatus');
+        const maxLoan = document.getElementById('maxLoan');
+
+        function updateScoring() {
+            const purchases = parseFloat(purchasesInput.value);
+            const loyalty = parseFloat(loyaltyInput.value);
+            const digital = parseFloat(digitalInput.value);
+            const age = parseFloat(ageInput.value);
+
+            // Update Input Labels
+            purchasesVal.innerText = 'TZS ' + purchases.toLocaleString();
+            loyaltyVal.innerText = loyalty + '%';
+            digitalVal.innerText = digital + '%';
+            ageVal.innerText = age + ' Miezi';
+
+            // Calculate Scoring Algorithm (Weights)
+            const cScore = Math.min(100, (purchases / 1000000) * 100) * 0.35;
+            const lScore = loyalty * 0.30;
+            const dScore = digital * 0.25;
+            const aScore = Math.min(100, (age / 24) * 100) * 0.10;
+
+            const finalScore = Math.round(cScore + lScore + dScore + aScore);
+
+            // Display Score
+            creditScoreEl.innerText = finalScore;
+
+            // Decision Engine
+            if (finalScore >= 75) {
+                riskBadge.innerText = 'LOW RISK';
+                riskBadge.className = 'font-bold px-2.5 py-0.5 rounded text-xs bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
+                loanStatus.innerText = 'APPROVED';
+                loanStatus.className = 'font-bold text-emerald-400';
+                maxLoan.innerText = 'TZS ' + Math.round(purchases * 0.8).toLocaleString();
+            } else if (finalScore >= 50) {
+                riskBadge.innerText = 'MEDIUM RISK';
+                riskBadge.className = 'font-bold px-2.5 py-0.5 rounded text-xs bg-amber-500/20 text-amber-400 border border-amber-500/30';
+                loanStatus.innerText = 'APPROVED (CONDITIONAL)';
+                loanStatus.className = 'font-bold text-amber-400';
+                maxLoan.innerText = 'TZS ' + Math.round(purchases * 0.4).toLocaleString();
+            } else {
+                riskBadge.innerText = 'HIGH RISK';
+                riskBadge.className = 'font-bold px-2.5 py-0.5 rounded text-xs bg-rose-500/20 text-rose-400 border border-rose-500/30';
+                loanStatus.innerText = 'REJECTED';
+                loanStatus.className = 'font-bold text-rose-400';
+                maxLoan.innerText = 'TZS 0';
+            }
+        }
+
+        // Add Event Listeners
+        [purchasesInput, loyaltyInput, digitalInput, ageInput].forEach(input => {
+            input.addEventListener('input', updateScoring);
+        });
+
+        // Initialize
+        updateScoring();
+    </script>
+</body>
+</html>

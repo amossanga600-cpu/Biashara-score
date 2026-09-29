@@ -1,0 +1,17 @@
+{
+  "trader_id": "TZ-SME-8842",
+  "business_name": "Mama Mary Mini-Supermarket",
+  "business_type": "Retail Grocery",
+  "phone_number": "+255712345678",
+  "business_age_months": 18,
+  "metrics": {
+    "monthly_supplier_purchases_tzs": [850000, 920000, 880000],
+    "monthly_sales_volume_tzs": [1200000, 1350000, 1280000],
+    "supplier_repayment_history": {
+      "total_credit_invoices": 10,
+      "paid_on_time": 9,
+      "defaulted_or_late": 1
+    },
+    "digital_payments_ratio": 0.65
+  }
+}

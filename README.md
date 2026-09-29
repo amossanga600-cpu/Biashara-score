@@ -1,4 +1,4 @@
-# Biashara-score# - Alternative Data Credit Scoring Engine
+# 🚀 AfriCredit - Alternative Data Credit Scoring Engine
 
 ![Status](https://img.shields.io/badge/Status-Prototype-green)
 ![License](https://img.shields.io/badge/License-MIT-blue)
